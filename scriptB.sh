@@ -13,7 +13,7 @@ if [ `ls *.rte 2>/dev/null | wc -l` -gt 0 ];then # Vérification de l'existence 
 				echo "\"$routeurdavant\" -> \"$routeur\" [label=\"$dns\"];" | sed 's/#/ /g' | sed 's/\//+/g' >> carte.xdot # On inscrit la liaison dans le fichier Dot
 				if [ "$routeur" == "$dest" ];then echo "\"$routeur\" [shape=box label=\"$dns ($routeur)\"];" | sed 's/#/ /g' | sed 's/\//+/g' >> carte.xdot; fi # S'il s'agit de la estination, on marque le nom de domaine avec une forme de rectangle
 			fi
-			routeurdavant=$routeur
+			routeurdavant=$routeur # On sauvegarde le routeur pour qu'il devienne le routeur d'avant dans la prochaine itération
 		done
 	done
 
